@@ -1,0 +1,1843 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pasaportes Colombia — Cancillería de la República</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #003087;
+    --azul-oscuro: #001a4d;
+    --amarillo: #FCD116;
+    --rojo: #CE1126;
+    --gris-claro: #f5f6f8;
+    --gris-medio: #e2e5eb;
+    --gris-texto: #4a4f5c;
+    --blanco: #ffffff;
+    --sombra: 0 4px 24px rgba(0,48,135,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--gris-texto);
+    background: var(--blanco);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ─── BARRA SUPERIOR ─── */
+  .topbar {
+    background: var(--azul-oscuro);
+    color: #aab8d4;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    padding: 6px 0;
+    text-align: center;
+  }
+  .topbar span { color: var(--amarillo); font-weight: 600; margin: 0 4px; }
+
+  /* ─── HEADER / NAV ─── */
+  header {
+    background: var(--azul);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-height: 68px;
+  }
+  .logo-escudo {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+  }
+  .logo-text {
+    flex: 1;
+  }
+  .logo-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--blanco);
+    line-height: 1.2;
+  }
+  .logo-text p {
+    font-size: 11px;
+    color: #aab8d4;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .bandera-strip {
+    display: flex;
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    bottom: 0; left: 0;
+  }
+  .bandera-strip span:nth-child(1) { background: var(--amarillo); flex: 2; }
+  .bandera-strip span:nth-child(2) { background: var(--azul); flex: 1; }
+  .bandera-strip span:nth-child(3) { background: var(--rojo); flex: 1; }
+
+  nav {
+    background: var(--azul-oscuro);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .nav-inner a {
+    color: #c8d4ea;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px 16px;
+    display: block;
+    letter-spacing: 0.3px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+  }
+  .nav-inner a:hover, .nav-inner a.active {
+    color: var(--amarillo);
+    border-bottom-color: var(--amarillo);
+    background: rgba(255,255,255,0.04);
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, var(--azul-oscuro) 0%, #00205f 50%, #001233 100%);
+    color: var(--blanco);
+    padding: 80px 24px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(252,209,22,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: var(--blanco);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(252,209,22,0.15);
+    border: 1px solid rgba(252,209,22,0.35);
+    color: var(--amarillo);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+  }
+  .hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .hero h2 em {
+    font-style: normal;
+    color: var(--amarillo);
+  }
+  .hero p {
+    font-size: 18px;
+    color: #c8d4ea;
+    max-width: 640px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+  }
+  .hero-cards {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .hero-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 12px;
+    padding: 20px 28px;
+    min-width: 180px;
+    backdrop-filter: blur(8px);
+  }
+  .hero-card strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--amarillo);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .hero-card span { font-size: 13px; color: #aab8d4; }
+
+  /* ─── SECCIONES GENÉRICAS ─── */
+  section { padding: 72px 24px; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-label {
+    display: inline-block;
+    background: var(--amarillo);
+    color: var(--azul-oscuro);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+
+  h2.titulo-seccion {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3.5vw, 38px);
+    font-weight: 700;
+    color: var(--azul-oscuro);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .subtitulo-seccion {
+    font-size: 17px;
+    color: #666;
+    max-width: 620px;
+    font-weight: 300;
+    margin-bottom: 48px;
+  }
+
+  /* ─── 1. TIPOS DE PASAPORTE ─── */
+  #tipos { background: var(--gris-claro); }
+  .tipos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  .tipo-card {
+    background: var(--blanco);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .tipo-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,48,135,0.15); }
+  .tipo-card-header {
+    background: var(--azul);
+    padding: 24px 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .tipo-icon {
+    width: 44px; height: 44px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .tipo-card-header h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--blanco);
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .tipo-card-header p { color: #aab8d4; font-size: 12px; }
+  .tipo-card-body { padding: 22px 24px; }
+  .tipo-card-body ul { padding-left: 18px; }
+  .tipo-card-body li { font-size: 14px; margin-bottom: 6px; color: var(--gris-texto); }
+  .badge-vigencia {
+    display: inline-block;
+    background: #e8f0fe;
+    color: var(--azul);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-top: 14px;
+  }
+
+  /* ─── 2. REQUISITOS ─── */
+  #requisitos { background: var(--blanco); }
+  .req-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+  .req-tab {
+    padding: 10px 22px;
+    border-radius: 8px;
+    border: 2px solid var(--gris-medio);
+    background: var(--blanco);
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .req-tab.active, .req-tab:hover {
+    background: var(--azul);
+    border-color: var(--azul);
+    color: var(--blanco);
+  }
+  .req-panel { display: none; }
+  .req-panel.active { display: block; }
+  .req-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .req-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--gris-claro);
+    border-radius: 12px;
+    padding: 18px 20px;
+    border-left: 4px solid var(--azul);
+  }
+  .req-num {
+    width: 30px; height: 30px;
+    background: var(--azul);
+    color: var(--blanco);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .req-item h4 { font-size: 15px; font-weight: 600; color: var(--azul-oscuro); margin-bottom: 3px; }
+  .req-item p { font-size: 13px; color: #666; }
+
+  /* ─── 3. PROCESO ─── */
+  #proceso { background: var(--azul-oscuro); color: var(--blanco); }
+  #proceso h2.titulo-seccion { color: var(--blanco); }
+  #proceso .subtitulo-seccion { color: #aab8d4; }
+  .proceso-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    position: relative;
+  }
+  .proceso-step {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 28px 22px;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .proceso-step:hover { background: rgba(255,255,255,0.10); }
+  .paso-num {
+    width: 52px; height: 52px;
+    background: var(--amarillo);
+    color: var(--azul-oscuro);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 auto 18px;
+  }
+  .proceso-step h3 { font-size: 16px; font-weight: 600; color: var(--blanco); margin-bottom: 10px; }
+  .proceso-step p { font-size: 13px; color: #8fa6cc; line-height: 1.6; }
+
+  /* ─── 4. TARIFAS ─── */
+  #tarifas { background: var(--gris-claro); }
+  .tarifas-table-wrap {
+    background: var(--blanco);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+  }
+  table { width: 100%; border-collapse: collapse; }
+  thead { background: var(--azul); }
+  thead th {
+    color: var(--blanco);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 16px 20px;
+    text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--gris-medio); transition: background 0.15s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #f0f4ff; }
+  tbody td { padding: 15px 20px; font-size: 14px; }
+  tbody td:first-child { font-weight: 600; color: var(--azul-oscuro); }
+  .price-tag {
+    background: #e8f0fe;
+    color: var(--azul);
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    font-size: 15px;
+  }
+  .nota-tarifas {
+    background: #fffbea;
+    border: 1px solid #f0d800;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #5a4a00;
+  }
+  .nota-tarifas strong { color: #3d3200; }
+
+  /* ─── 5. PUNTOS DE ATENCIÓN ─── */
+  #puntos { background: var(--blanco); }
+  .puntos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .punto-card {
+    border: 1px solid var(--gris-medio);
+    border-radius: 14px;
+    padding: 22px 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .punto-card:hover { border-color: var(--azul); box-shadow: var(--sombra); }
+  .punto-icon-wrap {
+    width: 46px; height: 46px;
+    background: var(--azul);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .punto-card h3 { font-size: 15px; font-weight: 600; color: var(--azul-oscuro); margin-bottom: 4px; }
+  .punto-card p { font-size: 13px; color: #666; line-height: 1.5; }
+  .punto-horario {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: #2a7a2a;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+
+  /* ─── 6. PREGUNTAS FRECUENTES ─── */
+  #faq { background: var(--gris-claro); }
+  .faq-list { max-width: 800px; }
+  .faq-item {
+    background: var(--blanco);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    overflow: hidden;
+  }
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 20px 24px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--azul-oscuro);
+    transition: background 0.15s;
+  }
+  .faq-question:hover { background: #f0f4ff; }
+  .faq-question span.arrow {
+    width: 28px; height: 28px;
+    background: var(--azul);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blanco);
+    font-size: 14px;
+    flex-shrink: 0;
+    transition: transform 0.25s, background 0.25s;
+  }
+  .faq-item.open .faq-question span.arrow { transform: rotate(180deg); background: var(--rojo); }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .faq-answer-inner {
+    padding: 0 24px 20px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+    border-top: 1px solid var(--gris-medio);
+    padding-top: 16px;
+  }
+
+  /* ─── 7. PASAPORTE ELECTRÓNICO ─── */
+  #electronico {
+    background: linear-gradient(135deg, #00205f 0%, #003087 100%);
+    color: var(--blanco);
+    position: relative;
+    overflow: hidden;
+  }
+  #electronico::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(252,209,22,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  #electronico h2.titulo-seccion { color: var(--blanco); }
+  #electronico .subtitulo-seccion { color: #aab8d4; }
+  .elec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  @media (max-width: 720px) { .elec-grid { grid-template-columns: 1fr; } }
+  .elec-passport-visual {
+    background: linear-gradient(145deg, #0a2a6e, #001233);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 36px 32px;
+    text-align: center;
+    position: relative;
+  }
+  .elec-passport-visual::before {
+    content: 'REPÚBLICA DE COLOMBIA';
+    display: block;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--amarillo);
+    margin-bottom: 20px;
+  }
+  .passport-chip-icon {
+    font-size: 60px;
+    display: block;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 0 20px rgba(252,209,22,0.4));
+  }
+  .passport-biometric-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #8fa6cc;
+    text-transform: uppercase;
+  }
+  .elec-features { display: flex; flex-direction: column; gap: 16px; }
+  .elec-feat {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .elec-feat-icon {
+    width: 40px; height: 40px;
+    background: rgba(252,209,22,0.15);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .elec-feat h4 { font-size: 15px; font-weight: 600; color: var(--blanco); margin-bottom: 3px; }
+  .elec-feat p { font-size: 13px; color: #8fa6cc; }
+
+  /* ─── 8. COLOMBIANOS EN EL EXTERIOR ─── */
+  #exterior { background: var(--blanco); }
+  .exterior-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+  }
+  .ext-card {
+    background: var(--gris-claro);
+    border-radius: 16px;
+    padding: 28px 24px;
+    border-top: 4px solid var(--azul);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .ext-card:hover { transform: translateY(-3px); box-shadow: var(--sombra); }
+  .ext-emoji { font-size: 32px; margin-bottom: 14px; display: block; }
+  .ext-card h3 { font-size: 16px; font-weight: 700; color: var(--azul-oscuro); margin-bottom: 8px; }
+  .ext-card p { font-size: 13px; color: #666; line-height: 1.6; }
+  .ext-cta {
+    background: var(--azul-oscuro);
+    color: var(--blanco);
+    border-radius: 16px;
+    padding: 36px;
+    margin-top: 36px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .ext-cta-text { flex: 1; min-width: 240px; }
+  .ext-cta h3 { font-size: 20px; font-weight: 700; color: var(--blanco); margin-bottom: 6px; font-family: 'Playfair Display', serif; }
+  .ext-cta p { color: #aab8d4; font-size: 14px; }
+  .btn-primary {
+    background: var(--amarillo);
+    color: var(--azul-oscuro);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 13px 28px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+  .btn-primary:hover { opacity: 0.88; }
+
+  /* ─── 9. POLÍTICA DE PRIVACIDAD ─── */
+  #privacidad { background: var(--gris-claro); }
+  .privacidad-content {
+    max-width: 860px;
+  }
+  .priv-section {
+    background: var(--blanco);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border-left: 5px solid var(--azul);
+  }
+  .priv-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--azul-oscuro);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .priv-section h3 span { font-size: 20px; }
+  .priv-section p, .priv-section li {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.75;
+    margin-bottom: 8px;
+  }
+  .priv-section ul { padding-left: 20px; }
+  .priv-section li { margin-bottom: 6px; }
+
+  /* ─── 10. NORMATIVA LEGAL ─── */
+  #normativa { background: var(--blanco); }
+  .norm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .norm-card {
+    border: 2px solid var(--gris-medio);
+    border-radius: 14px;
+    padding: 24px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .norm-card:hover { border-color: var(--azul); box-shadow: var(--sombra); }
+  .norm-year {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--rojo);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .norm-card h3 { font-size: 15px; font-weight: 700; color: var(--azul-oscuro); margin-bottom: 8px; }
+  .norm-card p { font-size: 13px; color: #666; line-height: 1.6; }
+  .norm-tag {
+    display: inline-block;
+    background: #e8f0fe;
+    color: var(--azul);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+
+  /* ─── ALERTA IMPORTANTE ─── */
+  .alerta-box {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 12px;
+    padding: 18px 24px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 36px;
+    font-size: 14px;
+    color: #7a5700;
+  }
+  .alerta-box .alerta-icon { font-size: 22px; flex-shrink: 0; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--azul-oscuro);
+    color: #8fa6cc;
+    padding: 60px 24px 0;
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+  }
+  @media (max-width: 768px) {
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
+    .footer-inner { grid-template-columns: 1fr; }
+  }
+  .footer-brand h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--blanco);
+    margin-bottom: 10px;
+  }
+  .footer-brand p { font-size: 13px; line-height: 1.7; }
+  .footer-col h4 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--amarillo);
+    margin-bottom: 16px;
+  }
+  .footer-col a, .footer-col p {
+    display: block;
+    font-size: 13px;
+    color: #8fa6cc;
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.15s;
+  }
+  .footer-col a:hover { color: var(--blanco); }
+  .footer-divider {
+    max-width: 1200px;
+    margin: 0 auto;
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 12px;
+  }
+  .footer-bottom p { color: #6a7f9c; }
+  .footer-disclaimer {
+    background: #002060;
+    text-align: center;
+    padding: 16px 24px;
+  }
+  .footer-disclaimer p {
+    font-size: 12px;
+    color: #6a7f9c;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  .footer-disclaimer strong { color: #8fa6cc; }
+
+  /* ─── RESPONSIVE GENERAL ─── */
+  @media (max-width: 768px) {
+    section { padding: 52px 16px; }
+    .nav-inner a { padding: 10px 10px; font-size: 12px; }
+    .hero { padding: 52px 16px 80px; }
+    .elec-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ─── SCROLL TO TOP ─── */
+  .scroll-top {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    background: var(--azul);
+    color: var(--blanco);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,48,135,0.3);
+    border: none;
+    font-size: 18px;
+    transition: background 0.2s, transform 0.2s;
+    z-index: 200;
+  }
+  .scroll-top:hover { background: var(--rojo); transform: translateY(-2px); }
+</style>
+</head>
+<body>
+
+<!-- BARRA SUPERIOR -->
+<div class="topbar">
+  República de Colombia &nbsp;|&nbsp; <span>Información Oficial</span> &nbsp;|&nbsp; Línea de atención: 01 8000 510 810
+</div>
+
+<!-- HEADER -->
+<header style="position:sticky;top:0;z-index:100;">
+  <div class="header-inner" style="position:relative;">
+    <!-- Escudo SVG simplificado -->
+    <svg class="logo-escudo" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="24" cy="24" rx="22" ry="22" fill="#FCD116"/>
+      <ellipse cx="24" cy="24" rx="18" ry="18" fill="#003087"/>
+      <rect x="14" y="16" width="20" height="18" rx="3" fill="#FCD116"/>
+      <rect x="14" y="16" width="20" height="6" rx="2" fill="#CE1126"/>
+      <rect x="14" y="22" width="20" height="6" fill="#FCD116"/>
+      <rect x="14" y="28" width="20" height="6" rx="2" fill="#003087"/>
+      <circle cx="24" cy="13" r="3.5" fill="#FCD116" stroke="#CE1126" stroke-width="1"/>
+    </svg>
+    <div class="logo-text">
+      <h1>República de Colombia</h1>
+      <p>Dirección de Pasaportes y Documentos de Viaje</p>
+    </div>
+    <div class="bandera-strip">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <nav>
+    <div class="nav-inner">
+      <a href="#tipos" class="active">Tipos de Pasaporte</a>
+      <a href="#requisitos">Requisitos</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#tarifas">Tarifas</a>
+      <a href="#puntos">Puntos de Atención</a>
+      <a href="#faq">Preguntas Frecuentes</a>
+      <a href="#electronico">Pasaporte Electrónico</a>
+      <a href="#exterior">Colombianos en el Exterior</a>
+      <a href="#privacidad">Privacidad</a>
+      <a href="#normativa">Normativa</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🇨🇴 Servicio Oficial de Pasaportes</div>
+    <h2>Tu <em>Pasaporte Colombiano</em>,<br>tu identidad en el mundo</h2>
+    <p>Información oficial, requisitos, tarifas y procedimientos para la obtención y renovación de pasaportes en Colombia y en el exterior.</p>
+    <div class="hero-cards">
+      <div class="hero-card">
+        <strong>10 años</strong>
+        <span>Vigencia máxima</span>
+      </div>
+      <div class="hero-card">
+        <strong>+50</strong>
+        <span>Puntos de atención</span>
+      </div>
+      <div class="hero-card">
+        <strong>48 h</strong>
+        <span>Entrega ordinaria</span>
+      </div>
+      <div class="hero-card">
+        <strong>24 h</strong>
+        <span>Entrega urgente</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──────────────────────────────────────────
+     SECCIÓN 1 — TIPOS DE PASAPORTE
+───────────────────────────────────────────── -->
+<section id="tipos">
+  <div class="section-inner">
+    <span class="section-label">Sección 01</span>
+    <h2 class="titulo-seccion">Tipos de Pasaporte</h2>
+    <p class="subtitulo-seccion">Colombia ofrece distintas categorías de pasaporte según el perfil y las necesidades de cada ciudadano.</p>
+    <div class="tipos-grid">
+
+      <div class="tipo-card">
+        <div class="tipo-card-header">
+          <div class="tipo-icon">📘</div>
+          <div>
+            <h3>Pasaporte Ordinario</h3>
+            <p>Para ciudadanos colombianos</p>
+          </div>
+        </div>
+        <div class="tipo-card-body">
+          <ul>
+            <li>Emitido a nacionales colombianos mayores y menores de edad</li>
+            <li>Válido para viajes de turismo, negocios y estudio</li>
+            <li>Contiene chip biométrico con datos del titular</li>
+            <li>Cubierta azul marino con escudo nacional</li>
+            <li>Lectores en 190+ países del mundo</li>
+          </ul>
+          <span class="badge-vigencia">⏱ Vigencia: 5 o 10 años</span>
+        </div>
+      </div>
+
+      <div class="tipo-card">
+        <div class="tipo-card-header" style="background:#8B0000;">
+          <div class="tipo-icon">📗</div>
+          <div>
+            <h3>Pasaporte Diplomático</h3>
+            <p>Servidores diplomáticos</p>
+          </div>
+        </div>
+        <div class="tipo-card-body">
+          <ul>
+            <li>Exclusivo para funcionarios del Ministerio de Relaciones Exteriores</li>
+            <li>Emitido a embajadores, cónsules y sus familias</li>
+            <li>Otorga inmunidad diplomática en el exterior</li>
+            <li>Cubierta roja con identificación especial</li>
+            <li>Requiere resolución de nombramiento vigente</li>
+          </ul>
+          <span class="badge-vigencia">⏱ Vigencia: Según nombramiento</span>
+        </div>
+      </div>
+
+      <div class="tipo-card">
+        <div class="tipo-card-header" style="background:#2e7d32;">
+          <div class="tipo-icon">📙</div>
+          <div>
+            <h3>Pasaporte Oficial</h3>
+            <p>Funcionarios del Estado</p>
+          </div>
+        </div>
+        <div class="tipo-card-body">
+          <ul>
+            <li>Para servidores públicos en misión oficial</li>
+            <li>Incluye congresistas, magistrados y altos funcionarios</li>
+            <li>Solo para viajes en ejercicio de funciones</li>
+            <li>Cubierta verde con identificación institucional</li>
+            <li>Requiere aval de la entidad gubernamental</li>
+          </ul>
+          <span class="badge-vigencia">⏱ Vigencia: Hasta 4 años</span>
+        </div>
+      </div>
+
+      <div class="tipo-card">
+        <div class="tipo-card-header" style="background:#5d4037;">
+          <div class="tipo-icon">📕</div>
+          <div>
+            <h3>Pasaporte Ejecutivo</h3>
+            <p>Autoridades de alto nivel</p>
+          </div>
+        </div>
+        <div class="tipo-card-body">
+          <ul>
+            <li>Para el Presidente, Vicepresidente y ministros</li>
+            <li>Otorga cortesía protocolar en el exterior</li>
+            <li>Tramitado directamente por la Cancillería</li>
+            <li>Cubierta especial con identificación ejecutiva</li>
+            <li>Requiere decreto presidencial o resolución</li>
+          </ul>
+          <span class="badge-vigencia">⏱ Vigencia: Período en cargo</span>
+        </div>
+      </div>
+
+      <div class="tipo-card">
+        <div class="tipo-card-header" style="background:#006064;">
+          <div class="tipo-icon">🧒</div>
+          <div>
+            <h3>Pasaporte para Menores</h3>
+            <p>Niños y adolescentes</p>
+          </div>
+        </div>
+        <div class="tipo-card-body">
+          <ul>
+            <li>Para ciudadanos colombianos menores de 18 años</li>
+            <li>Trámite realizado por los padres o tutor legal</li>
+            <li>Requiere presencia física del menor</li>
+            <li>Incluye toma de huellas desde los 6 años</li>
+            <li>Autorización notarial si viaja solo o con uno de los padres</li>
+          </ul>
+          <span class="badge-vigencia">⏱ Vigencia: 3 o 5 años</span>
+        </div>
+      </div>
+
+      <div class="tipo-card">
+        <div class="tipo-card-header" style="background:#424242;">
+          <div class="tipo-icon">🆘</div>
+          <div>
+            <h3>Pasaporte de Emergencia</h3>
+            <p>Situaciones excepcionales</p>
+          </div>
+        </div>
+        <div class="tipo-card-body">
+          <ul>
+            <li>Emitido en casos de pérdida o robo en el exterior</li>
+            <li>Para regresar urgentemente a Colombia</li>
+            <li>Proceso en consulados colombianos en el exterior</li>
+            <li>Vigencia limitada para un solo viaje de retorno</li>
+            <li>Requiere denuncia ante autoridades locales</li>
+          </ul>
+          <span class="badge-vigencia">⏱ Vigencia: 30 días</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────
+     SECCIÓN 2 — REQUISITOS
+───────────────────────────────────────────── -->
+<section id="requisitos">
+  <div class="section-inner">
+    <span class="section-label">Sección 02</span>
+    <h2 class="titulo-seccion">Requisitos para el Trámite</h2>
+    <p class="subtitulo-seccion">Consulta los documentos necesarios según el tipo de trámite que vas a realizar.</p>
+
+    <div class="req-tabs">
+      <button class="req-tab active" onclick="showTab(event, 'nuevo')">Pasaporte Nuevo</button>
+      <button class="req-tab" onclick="showTab(event, 'renovacion')">Renovación</button>
+      <button class="req-tab" onclick="showTab(event, 'menores')">Menores de Edad</button>
+      <button class="req-tab" onclick="showTab(event, 'exterior')">Trámite en el Exterior</button>
+    </div>
+
+    <div id="nuevo" class="req-panel active">
+      <div class="req-list">
+        <div class="req-item"><div class="req-num">1</div><div><h4>Cédula de Ciudadanía</h4><p>Original vigente. Para personas mayores de 18 años.</p></div></div>
+        <div class="req-item"><div class="req-num">2</div><div><h4>Registro Civil de Nacimiento</h4><p>Original o copia autenticada. Solo si la cédula no contiene huella.</p></div></div>
+        <div class="req-item"><div class="req-num">3</div><div><h4>Pago de tarifa</h4><p>Comprobante de pago según la modalidad de entrega elegida.</p></div></div>
+        <div class="req-item"><div class="req-num">4</div><div><h4>Presencia física</h4><p>El titular debe asistir personalmente para toma biométrica.</p></div></div>
+        <div class="req-item"><div class="req-num">5</div><div><h4>Formulario de solicitud</h4><p>Diligenciado en el sistema en línea o en el punto de atención.</p></div></div>
+        <div class="req-item"><div class="req-num">6</div><div><h4>Correo electrónico válido</h4><p>Para recibir notificaciones del estado del trámite.</p></div></div>
+      </div>
+    </div>
+
+    <div id="renovacion" class="req-panel">
+      <div class="req-list">
+        <div class="req-item"><div class="req-num">1</div><div><h4>Pasaporte anterior</h4><p>Presentar el pasaporte vencido o próximo a vencer.</p></div></div>
+        <div class="req-item"><div class="req-num">2</div><div><h4>Cédula de Ciudadanía</h4><p>Original vigente del titular del pasaporte.</p></div></div>
+        <div class="req-item"><div class="req-num">3</div><div><h4>Pago de tarifa</h4><p>Igual a la de primer trámite. No hay descuento por renovación.</p></div></div>
+        <div class="req-item"><div class="req-num">4</div><div><h4>Justificación de renovación anticipada</h4><p>Si el pasaporte tiene más de 1 año de vigencia, se requiere carta de justificación.</p></div></div>
+        <div class="req-item"><div class="req-num">5</div><div><h4>Presencia física obligatoria</h4><p>Para actualización de datos biométricos.</p></div></div>
+      </div>
+    </div>
+
+    <div id="menores" class="req-panel">
+      <div class="req-list">
+        <div class="req-item"><div class="req-num">1</div><div><h4>Tarjeta de Identidad</h4><p>Para menores de 7 a 17 años. Menores de 7 presentan Registro Civil.</p></div></div>
+        <div class="req-item"><div class="req-num">2</div><div><h4>Registro Civil de Nacimiento</h4><p>Original o copia autenticada.</p></div></div>
+        <div class="req-item"><div class="req-num">3</div><div><h4>Cédulas de ambos padres o tutores</h4><p>Copias simples de los documentos de identidad.</p></div></div>
+        <div class="req-item"><div class="req-num">4</div><div><h4>Autorización de ambos padres</h4><p>Si uno de los padres no puede asistir, debe presentar autorización autenticada ante notario.</p></div></div>
+        <div class="req-item"><div class="req-num">5</div><div><h4>Pago de tarifa</h4><p>Comprobante de pago para pasaporte de menor.</p></div></div>
+        <div class="req-item"><div class="req-num">6</div><div><h4>Presencia del menor y un padre/tutor</h4><p>Asistencia obligatoria al punto de atención.</p></div></div>
+      </div>
+    </div>
+
+    <div id="exterior" class="req-panel">
+      <div class="req-list">
+        <div class="req-item"><div class="req-num">1</div><div><h4>Cédula de Ciudadanía</h4><p>Original o copia apostillada si fue expedida en Colombia.</p></div></div>
+        <div class="req-item"><div class="req-num">2</div><div><h4>Pasaporte anterior</h4><p>Si posee uno, presentarlo independientemente de su estado.</p></div></div>
+        <div class="req-item"><div class="req-num">3</div><div><h4>Comprobante de residencia en el exterior</h4><p>Documento que acredite su domicilio actual.</p></div></div>
+        <div class="req-item"><div class="req-num">4</div><div><h4>Pago en el consulado</h4><p>Las tarifas se cobran en la moneda del país de residencia.</p></div></div>
+        <div class="req-item"><div class="req-num">5</div><div><h4>Cita previa en el consulado</h4><p>Obligatoria. Se agenda en el portal web consular.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────
+     SECCIÓN 3 — PROCESO PASO A PASO
+───────────────────────────────────────────── -->
+<section id="proceso">
+  <div class="section-inner">
+    <span class="section-label" style="background:rgba(252,209,22,0.9);">Sección 03</span>
+    <h2 class="titulo-seccion">Proceso Paso a Paso</h2>
+    <p class="subtitulo-seccion">Sigue estos pasos para obtener tu pasaporte de manera ágil y sin contratiempos.</p>
+    <div class="proceso-steps">
+      <div class="proceso-step">
+        <div class="paso-num">1</div>
+        <h3>Agenda tu cita</h3>
+        <p>Ingresa al portal de la Cancillería o llama a la línea gratuita 01 8000 510 810 para programar una cita en el punto más cercano.</p>
+      </div>
+      <div class="proceso-step">
+        <div class="paso-num">2</div>
+        <h3>Reúne los documentos</h3>
+        <p>Prepara todos los documentos requeridos según el tipo de trámite (nuevo, renovación o menor de edad).</p>
+      </div>
+      <div class="proceso-step">
+        <div class="paso-num">3</div>
+        <h3>Realiza el pago</h3>
+        <p>Paga la tarifa vigente en bancos autorizados, en línea o en el punto de atención antes de tu cita.</p>
+      </div>
+      <div class="proceso-step">
+        <div class="paso-num">4</div>
+        <h3>Asiste a la cita</h3>
+        <p>Preséntate puntualmente. Se realizará captura de huella dactilar, fotografía y firma digital.</p>
+      </div>
+      <div class="proceso-step">
+        <div class="paso-num">5</div>
+        <h3>Verifica tu trámite</h3>
+        <p>Consulta el estado de tu solicitud en línea con el número de radicado entregado en la cita.</p>
+      </div>
+      <div class="proceso-step">
+        <div class="paso-num">6</div>
+        <h3>Recibe tu pasaporte</h3>
+        <p>Recógelo en el punto de atención o recíbelo en casa (servicio a domicilio disponible en ciudades principales).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────
+     SECCIÓN 4 — TARIFAS
+───────────────────────────────────────────── -->
+<section id="tarifas">
+  <div class="section-inner">
+    <span class="section-label">Sección 04</span>
+    <h2 class="titulo-seccion">Tarifas Vigentes 2024</h2>
+    <p class="subtitulo-seccion">Las tarifas son fijadas por el Gobierno Nacional y pueden actualizarse anualmente según el IPC.</p>
+
+    <div class="alerta-box">
+      <span class="alerta-icon">⚠️</span>
+      <div><strong>Importante:</strong> Las tarifas aquí presentadas son de carácter informativo y orientativo. Antes de realizar el pago, verifique los valores actualizados directamente en la Cancillería o los puntos de atención oficiales autorizados. Las cifras pueden variar según el año y modalidad.</div>
+    </div>
+
+    <div class="tarifas-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Tipo de Pasaporte</th>
+            <th>Vigencia</th>
+            <th>Modalidad</th>
+            <th>Tarifa Aprox.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pasaporte Ordinario — Adulto</td>
+            <td>5 años</td>
+            <td>Entrega ordinaria (48 h)</td>
+            <td><span class="price-tag">$272.000</span></td>
+          </tr>
+          <tr>
+            <td>Pasaporte Ordinario — Adulto</td>
+            <td>10 años</td>
+            <td>Entrega ordinaria (48 h)</td>
+            <td><span class="price-tag">$272.000</span></td>
+          </tr>
+          <tr>
+            <td>Pasaporte Ordinario — Adulto</td>
+            <td>5 años</td>
+            <td>Entrega urgente (24 h)</td>
+            <td><span class="price-tag">$400.000</span></td>
+          </tr>
+          <tr>
+            <td>Pasaporte Ordinario — Adulto</td>
+            <td>10 años</td>
+            <td>Entrega urgente (24 h)</td>
+            <td><span class="price-tag">$400.000</span></td>
+          </tr>
+          <tr>
+            <td>Pasaporte para Menores</td>
+            <td>3 años</td>
+            <td>Entrega ordinaria (48 h)</td>
+            <td><span class="price-tag">$272.000</span></td>
+          </tr>
+          <tr>
+            <td>Pasaporte para Menores</td>
+            <td>5 años</td>
+            <td>Entrega ordinaria (48 h)</td>
+            <td><span class="price-tag">$272.000</span></td>
+          </tr>
+          <tr>
+            <td>Pasaporte para Menores</td>
+            <td>5 años</td>
+            <td>Entrega urgente (24 h)</td>
+            <td><span class="price-tag">$400.000</span></td>
+          </tr>
+          <tr>
+            <td>Pasaporte de Emergencia</td>
+            <td>30 días</td>
+            <td>Consulado en el exterior</td>
+            <td><span class="price-tag">Según país</span></td>
+          </tr>
+          <tr>
+            <td>Adición de hojas</td>
+            <td>—</td>
+            <td>Páginas adicionales</td>
+            <td><span class="price-tag">$55.000</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="nota-tarifas">
+      <strong>📌 Canales de pago aceptados:</strong> Bancos autorizados (Bancolombia, Davivienda, Banco de Bogotá, Banco Popular), PSE, Efecty, Baloto, y puntos de atención de la Cancillería. Los pagos en el exterior se realizan en la moneda local del país de residencia, a la tasa oficial vigente.
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────
+     SECCIÓN 5 — PUNTOS DE ATENCIÓN
+───────────────────────────────────────────── -->
+<section id="puntos">
+  <div class="section-inner">
+    <span class="section-label">Sección 05</span>
+    <h2 class="titulo-seccion">Puntos de Atención</h2>
+    <p class="subtitulo-seccion">La Cancillería cuenta con puntos de atención en todo el territorio nacional y en más de 60 consulados alrededor del mundo.</p>
+    <div class="puntos-grid">
+
+      <div class="punto-card">
+        <div class="punto-icon-wrap">🏛️</div>
+        <div>
+          <h3>Bogotá D.C. — Sede Principal</h3>
+          <p>Calle 10 No. 5 – 51, Palacio de San Carlos.<br>Bogotá D.C.</p>
+          <div class="punto-horario">🟢 Lun–Vie: 7:30 a.m. – 4:00 p.m.</div>
+        </div>
+      </div>
+
+      <div class="punto-card">
+        <div class="punto-icon-wrap">🏢</div>
+        <div>
+          <h3>Bogotá — Centro Comercial Gran Estación</h3>
+          <p>Carrera 65 No. 11 – 50, Local 1-180.<br>Bogotá D.C.</p>
+          <div class="punto-horario">🟢 Lun–Sáb: 8:00 a.m. – 5:00 p.m.</div>
+        </div>
+      </div>
+
+      <div class="punto-card">
+        <div class="punto-icon-wrap">🌊</div>
+        <div>
+          <h3>Barranquilla</h3>
+          <p>Calle 40 No. 44 – 30, Edificio Bancafé.<br>Barranquilla, Atlántico.</p>
+          <div class="punto-horario">🟢 Lun–Vie: 7:30 a.m. – 4:00 p.m.</div>
+        </div>
+      </div>
+
+      <div class="punto-card">
+        <div class="punto-icon-wrap">⛰️</div>
+        <div>
+          <h3>Medellín</h3>
+          <p>Carrera 43A No. 1 Sur – 100, El Poblado.<br>Medellín, Antioquia.</p>
+          <div class="punto-horario">🟢 Lun–Vie: 7:30 a.m. – 4:30 p.m.</div>
+        </div>
+      </div>
+
+      <div class="punto-card">
+        <div class="punto-icon-wrap">🏖️</div>
+        <div>
+          <h3>Cartagena de Indias</h3>
+          <p>Calle 34 No. 6 – 48, Centro Histórico.<br>Cartagena, Bolívar.</p>
+          <div class="punto-horario">🟢 Lun–Vie: 7:30 a.m. – 4:00 p.m.</div>
+        </div>
+      </div>
+
+      <div class="punto-card">
+        <div class="punto-icon-wrap">☁️</div>
+        <div>
+          <h3>Cali</h3>
+          <p>Carrera 4 No. 7 – 23, Edificio Palacio de Justicia.<br>Cali, Valle del Cauca.</p>
+          <div class="punto-horario">🟢 Lun–Vie: 8:00 a.m. – 4:00 p.m.</div>
+        </div>
+      </div>
+
+      <div class="punto-card">
+        <div class="punto-icon-wrap">🌿</div>
+        <div>
+          <h3>Bucaramanga</h3>
+          <p>Calle 35 No. 13 – 21, Centro Administrativo.<br>Bucaramanga, Santander.</p>
+          <div class="punto-horario">🟢 Lun–Vie: 7:30 a.m. – 4:00 p.m.</div>
+        </div>
+      </div>
+
+      <div class="punto-card">
+        <div class="punto-icon-wrap">🦁</div>
+        <div>
+          <h3>Manizales</h3>
+          <p>Carrera 22 No. 19 – 25, Edificio de Gobierno.<br>Manizales, Caldas.</p>
+          <div class="punto-horario">🟢 Lun–Vie: 7:30 a.m. – 4:00 p.m.</div>
+        </div>
+      </div>
+
+      <div class="punto-card">
+        <div class="punto-icon-wrap">🌺</div>
+        <div>
+          <h3>Pereira</h3>
+          <p>Carrera 7 No. 18 – 55, Centro Comercial Victoria.<br>Pereira, Risaralda.</p>
+          <div class="punto-horario">🟢 Lun–Vie: 8:00 a.m. – 5:00 p.m.</div>
+        </div>
+      </div>
+
+      <div class="punto-card">
+        <div class="punto-icon-wrap">🌴</div>
+        <div>
+          <h3>Santa Marta</h3>
+          <p>Carrera 5 No. 22 – 09, Centro.<br>Santa Marta, Magdalena.</p>
+          <div class="punto-horario">🟢 Lun–Vie: 7:30 a.m. – 4:00 p.m.</div>
+        </div>
+      </div>
+
+      <div class="punto-card">
+        <div class="punto-icon-wrap">🦅</div>
+        <div>
+          <h3>Cucutá</h3>
+          <p>Avenida 5 No. 12 – 39, Centro.<br>Cúcuta, Norte de Santander.</p>
+          <div class="punto-horario">🟢 Lun–Vie: 7:30 a.m. – 4:00 p.m.</div>
+        </div>
+      </div>
+
+      <div class="punto-card">
+        <div class="punto-icon-wrap">🌊</div>
+        <div>
+          <h3>San Andrés</h3>
+          <p>Avenida Newball, Edificio Coral Palace.<br>San Andrés Isla.</p>
+          <div class="punto-horario">🟢 Lun–Vie: 8:00 a.m. – 4:00 p.m.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────
+     SECCIÓN 6 — PREGUNTAS FRECUENTES
+───────────────────────────────────────────── -->
+<section id="faq">
+  <div class="section-inner">
+    <span class="section-label">Sección 06</span>
+    <h2 class="titulo-seccion">Preguntas Frecuentes</h2>
+    <p class="subtitulo-seccion">Resolvemos las dudas más comunes sobre el trámite de pasaportes en Colombia.</p>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          ¿Con cuánta anticipación debo renovar mi pasaporte?
+          <span class="arrow">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Se recomienda renovar el pasaporte con al menos 6 meses de anticipación antes de su fecha de vencimiento, ya que muchos países exigen una vigencia mínima de 6 meses para permitir el ingreso. Algunos países como los de la Unión Europea o Estados Unidos pueden negar el ingreso o el visado si el pasaporte no cumple este requisito. No espere a que su pasaporte esté vencido para iniciar el trámite.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          ¿Puedo viajar mientras tramito mi nuevo pasaporte?
+          <span class="arrow">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Sí, siempre y cuando tenga un pasaporte vigente. El pasaporte anterior conserva su validez hasta su fecha de vencimiento natural, incluso si inició el proceso de renovación. Sin embargo, si entregó su pasaporte anterior como parte del trámite, deberá esperar a recibir el nuevo antes de viajar. Si tiene un viaje urgente programado, solicite la modalidad de entrega urgente (24 horas hábiles).
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          ¿Qué hago si pierdo o me roban el pasaporte en el exterior?
+          <span class="arrow">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            En caso de pérdida o robo de su pasaporte en el exterior debe: (1) Interponer denuncia ante las autoridades policiales locales y obtener una copia del reporte. (2) Comunicarse de inmediato con el consulado colombiano más cercano. (3) Presentar la denuncia policial, su cédula de ciudadanía y comprobante de identidad adicional. (4) Solicitar un pasaporte de emergencia que le permitirá regresar a Colombia. El consulado le orientará en todos los pasos a seguir. Recuerde también reportar el pasaporte extraviado a la Cancillería para su anulación en los sistemas internacionales.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          ¿Cuánto tiempo tarda el proceso de elaboración del pasaporte?
+          <span class="arrow">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            El tiempo de elaboración depende de la modalidad seleccionada: la modalidad ordinaria tiene un plazo de 48 horas hábiles contadas desde la radicación exitosa del trámite, y la modalidad urgente tiene un plazo de 24 horas hábiles. Estos tiempos no incluyen sábados, domingos ni festivos. En temporadas de alta demanda (vacaciones de junio-julio y diciembre) los tiempos pueden extenderse ligeramente. Se recomienda solicitar el trámite con suficiente antelación a los viajes programados.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          ¿Puedo tramitar el pasaporte de un menor sin la firma del padre?
+          <span class="arrow">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Si ambos padres tienen la patria potestad del menor, ambos deben consentir la expedición del pasaporte. Si uno de los padres no puede asistir al punto de atención, debe otorgar una autorización escrita ante notario, con firma autenticada. En caso de que uno de los padres haya sido privado de la patria potestad por decisión judicial, se debe presentar la sentencia judicial correspondiente. Si el menor está bajo tutela legal, el tutor debe presentar el documento judicial que acredita su calidad.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          ¿Es posible agendar cita en línea para el trámite?
+          <span class="arrow">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Sí. La Cancillería dispone del portal de agendamiento en línea donde puede reservar su cita en el punto de atención de su preferencia. También puede comunicarse con la línea gratuita nacional 01 8000 510 810. Se recomienda agendar la cita con varios días de anticipación, especialmente en ciudades grandes como Bogotá, Medellín y Cali donde la demanda es alta. El día de la cita debe presentarse puntualmente con todos los documentos requeridos.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          ¿Los colombianos en el exterior pueden tramitar su pasaporte?
+          <span class="arrow">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Sí. Colombia cuenta con una amplia red consular en más de 60 países del mundo. Los ciudadanos colombianos en el exterior pueden tramitar su pasaporte directamente en el consulado colombiano correspondiente a su lugar de residencia. El trámite requiere cita previa que puede agendarse a través del portal del Sistema de Información Consular. Las tarifas se cobran en la moneda local del país de residencia a la tasa de cambio oficial.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────
+     SECCIÓN 7 — PASAPORTE ELECTRÓNICO
+───────────────────────────────────────────── -->
+<section id="electronico">
+  <div class="section-inner">
+    <span class="section-label" style="background:rgba(252,209,22,0.9);">Sección 07</span>
+    <h2 class="titulo-seccion">Pasaporte Electrónico (e-Passport)</h2>
+    <p class="subtitulo-seccion">Colombia emite pasaportes con chip biométrico que cumplen estándares internacionales ICAO.</p>
+    <div class="elec-grid">
+      <div class="elec-passport-visual">
+        <span class="passport-chip-icon">🛂</span>
+        <p style="font-size:28px; font-weight:900; color:#FCD116; letter-spacing:4px; margin-bottom:8px;">COL</p>
+        <p style="font-size:13px; color:#8fa6cc; margin-bottom:24px;">PASAPORTE / PASSPORT</p>
+        <div style="background:rgba(255,255,255,0.05); border-radius:8px; padding:12px; font-family:monospace; font-size:11px; color:#5a7ab5; letter-spacing:1px;">
+          P&lt;COL&lt;APELLIDO&lt;&lt;NOMBRE&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br>
+          CF00000000&lt;0COL000000000M000000000000000
+        </div>
+        <p class="passport-biometric-label" style="margin-top:16px;">Documento Biométrico — ICAO 9303</p>
+      </div>
+      <div class="elec-features">
+        <div class="elec-feat">
+          <div class="elec-feat-icon">🔐</div>
+          <div>
+            <h4>Chip RFID Incorporado</h4>
+            <p>Almacena datos biométricos del titular: fotografía, huellas dactilares y firma digital de forma cifrada.</p>
+          </div>
+        </div>
+        <div class="elec-feat">
+          <div class="elec-feat-icon">🌐</div>
+          <div>
+            <h4>Estándar Internacional ICAO Doc 9303</h4>
+            <p>Compatible con lectores de fronteras en todo el mundo. Acelera el proceso de inmigración y reduce filas.</p>
+          </div>
+        </div>
+        <div class="elec-feat">
+          <div class="elec-feat-icon">🛡️</div>
+          <div>
+            <h4>Múltiples Capas de Seguridad</h4>
+            <p>Hologramas, tintas especiales, marca de agua, microtextos y elementos de seguridad invisibles al ojo desnudo.</p>
+          </div>
+        </div>
+        <div class="elec-feat">
+          <div class="elec-feat-icon">✈️</div>
+          <div>
+            <h4>Acceso a Egateway Automáticos</h4>
+            <p>En países como EE.UU., Canadá, la Unión Europea y el Reino Unido, permite el uso de autogestión biométrica en fronteras.</p>
+          </div>
+        </div>
+        <div class="elec-feat">
+          <div class="elec-feat-icon">🔄</div>
+          <div>
+            <h4>Actualizaciones Tecnológicas</h4>
+            <p>Colombia actualiza periódicamente la tecnología del chip conforme a las directrices de la OACI para garantizar la seguridad.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────
+     SECCIÓN 8 — COLOMBIANOS EN EL EXTERIOR
+───────────────────────────────────────────── -->
+<section id="exterior">
+  <div class="section-inner">
+    <span class="section-label">Sección 08</span>
+    <h2 class="titulo-seccion">Colombianos en el Exterior</h2>
+    <p class="subtitulo-seccion">La Cancillería protege y asiste a los colombianos que residen o viajan fuera del país.</p>
+    <div class="exterior-grid">
+      <div class="ext-card">
+        <span class="ext-emoji">🏛️</span>
+        <h3>Red Consular</h3>
+        <p>Colombia cuenta con más de 60 consulados en todo el mundo. Cada oficina consular ofrece servicios de pasaportes, apostillas, registro civil y asistencia de emergencia.</p>
+      </div>
+      <div class="ext-card">
+        <span class="ext-emoji">📋</span>
+        <h3>Servicios Notariales</h3>
+        <p>En los consulados puede realizar apostillas, autenticaciones, poderes notariales, declaraciones juramentadas y registro de nacimientos de hijos en el exterior.</p>
+      </div>
+      <div class="ext-card">
+        <span class="ext-emoji">🆘</span>
+        <h3>Asistencia de Emergencia</h3>
+        <p>Si se encuentra en una situación de emergencia en el exterior (accidente, detención, fallecimiento de familiar), comuníquese de inmediato con el consulado más cercano.</p>
+      </div>
+      <div class="ext-card">
+        <span class="ext-emoji">🗳️</span>
+        <h3>Registro y Votación</h3>
+        <p>Desde el exterior puede inscribir su cédula para votar en elecciones colombianas. Las mesas de votación se instalan en los consulados más grandes del mundo.</p>
+      </div>
+      <div class="ext-card">
+        <span class="ext-emoji">👨‍👩‍👧</span>
+        <h3>Registro de Menores Nacidos en el Exterior</h3>
+        <p>Los hijos de colombianos nacidos en otros países deben ser registrados ante el consulado colombiano para obtener su nacionalidad y documentación colombiana.</p>
+      </div>
+      <div class="ext-card">
+        <span class="ext-emoji">📱</span>
+        <h3>Comunidad Colombiana en el Exterior</h3>
+        <p>A través del portal de la Cancillería y la app Colombia en el Exterior puede acceder a información consular, actualizar datos y solicitar servicios desde su dispositivo móvil.</p>
+      </div>
+    </div>
+    <div class="ext-cta">
+      <div class="ext-cta-text">
+        <h3>¿Necesita contactar un consulado colombiano?</h3>
+        <p>Encuentre el directorio completo de embajadas y consulados de Colombia en el mundo a través del portal oficial de la Cancillería.</p>
+      </div>
+      <a href="#" class="btn-primary">Ver Directorio Consular →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────
+     SECCIÓN 9 — POLÍTICA DE PRIVACIDAD
+───────────────────────────────────────────── -->
+<section id="privacidad">
+  <div class="section-inner">
+    <span class="section-label">Sección 09</span>
+    <h2 class="titulo-seccion">Política de Privacidad y Protección de Datos</h2>
+    <p class="subtitulo-seccion">La Cancillería de Colombia garantiza la protección de sus datos personales conforme a la Ley Estatutaria 1581 de 2012.</p>
+    <div class="privacidad-content">
+
+      <div class="priv-section">
+        <h3><span>📌</span> 1. Responsable del Tratamiento</h3>
+        <p>El responsable del tratamiento de los datos personales es el <strong>Ministerio de Relaciones Exteriores de Colombia — Cancillería</strong>, con domicilio en Calle 10 No. 5-51, Palacio de San Carlos, Bogotá D.C., Colombia. NIT: 899.999.085-4. Correo de protección de datos: protecciondatos@cancilleria.gov.co</p>
+      </div>
+
+      <div class="priv-section">
+        <h3><span>📂</span> 2. Datos Personales que Recopilamos</h3>
+        <p>En el marco del trámite de pasaportes, la Cancillería recopila y trata los siguientes datos personales:</p>
+        <ul>
+          <li><strong>Datos de identificación:</strong> Nombre completo, número de cédula, fecha y lugar de nacimiento, nacionalidad.</li>
+          <li><strong>Datos biométricos:</strong> Fotografía digital, huellas dactilares, firma digital. Estos datos son especialmente protegidos.</li>
+          <li><strong>Datos de contacto:</strong> Dirección de residencia, correo electrónico, número telefónico.</li>
+          <li><strong>Datos del documento:</strong> Número de pasaporte, fecha de expedición y vencimiento, estado del trámite.</li>
+          <li><strong>Datos de pago:</strong> Referencia de pago, banco utilizado. No se almacenan datos de tarjetas.</li>
+        </ul>
+      </div>
+
+      <div class="priv-section">
+        <h3><span>🎯</span> 3. Finalidades del Tratamiento</h3>
+        <p>Sus datos personales son tratados exclusivamente para las siguientes finalidades:</p>
+        <ul>
+          <li>Expedición, renovación, anulación y gestión de pasaportes colombianos.</li>
+          <li>Verificación de identidad y prevención del fraude documental.</li>
+          <li>Cumplimiento de obligaciones legales y tratados internacionales.</li>
+          <li>Comunicación sobre el estado del trámite al solicitante.</li>
+          <li>Cooperación con autoridades migratorias nacionales e internacionales (Interpol, OACI).</li>
+          <li>Estadísticas anónimas y mejora de los servicios consulares.</li>
+        </ul>
+      </div>
+
+      <div class="priv-section">
+        <h3><span>⏳</span> 4. Tiempo de Conservación</h3>
+        <p>Los datos personales relacionados con el trámite de pasaportes se conservan por un período mínimo de <strong>30 años</strong> contados desde la fecha de expedición del documento, conforme a la normativa archivística del Estado colombiano (Ley 594 de 2000) y los compromisos internacionales adquiridos en materia de seguridad migratoria.</p>
+        <p>Los datos biométricos son almacenados en servidores de alta seguridad del Estado colombiano y no pueden ser eliminados a solicitud del titular, dado que hacen parte del registro documental soberano de la Nación.</p>
+      </div>
+
+      <div class="priv-section">
+        <h3><span>🔒</span> 5. Seguridad de los Datos</h3>
+        <p>La Cancillería implementa medidas técnicas y organizativas robustas para proteger sus datos:</p>
+        <ul>
+          <li>Cifrado AES-256 para almacenamiento de datos biométricos.</li>
+          <li>Transmisión de información mediante protocolos SSL/TLS.</li>
+          <li>Control de acceso basado en roles y autenticación multifactor.</li>
+          <li>Auditorías de seguridad periódicas por entes de control del Estado.</li>
+          <li>Centros de datos certificados en estándares ISO 27001.</li>
+          <li>Plan de recuperación ante desastres y continuidad del negocio.</li>
+        </ul>
+      </div>
+
+      <div class="priv-section">
+        <h3><span>📤</span> 6. Transferencia Internacional de Datos</h3>
+        <p>En el ejercicio de sus funciones de seguridad migratoria, la Cancillería puede compartir información del pasaporte con:</p>
+        <ul>
+          <li><strong>Interpol</strong> — En casos de documentos reportados como robados o utilizados en actividades ilícitas.</li>
+          <li><strong>OACI (Organización de Aviación Civil Internacional)</strong> — Para validación de documentos de viaje en el tráfico aéreo internacional.</li>
+          <li><strong>Autoridades migratorias de países signatarios</strong> — En el marco de acuerdos bilaterales y convenciones internacionales.</li>
+          <li><strong>Sistema de Información Schengen (SIS)</strong> — En el contexto de acuerdos con la Unión Europea.</li>
+        </ul>
+        <p>Todas las transferencias se realizan con las garantías legales establecidas en la Ley 1581 de 2012 y sus decretos reglamentarios.</p>
+      </div>
+
+      <div class="priv-section">
+        <h3><span>✅</span> 7. Derechos del Titular</h3>
+        <p>Como titular de los datos personales, usted tiene los siguientes derechos consagrados en la Ley 1581 de 2012:</p>
+        <ul>
+          <li><strong>Acceso:</strong> Conocer qué datos personales suyos son tratados por la Cancillería.</li>
+          <li><strong>Actualización y rectificación:</strong> Solicitar la corrección de datos inexactos o incompletos.</li>
+          <li><strong>Supresión:</strong> Solicitar la eliminación de datos cuando el tratamiento no sea conforme a la ley. (Sujeto a limitaciones legales.)</li>
+          <li><strong>Revocación del consentimiento:</strong> Cuando el tratamiento esté basado en su consentimiento.</li>
+          <li><strong>Queja ante la SIC:</strong> Presentar queja ante la Superintendencia de Industria y Comercio si considera que sus derechos han sido vulnerados.</li>
+        </ul>
+        <p>Para ejercer sus derechos, envíe una solicitud escrita a: <strong>protecciondatos@cancilleria.gov.co</strong> con asunto "Derechos ARCO" y acompañada de copia de su documento de identidad.</p>
+      </div>
+
+      <div class="priv-section">
+        <h3><span>🍪</span> 8. Cookies y Portal Web</h3>
+        <p>El portal web de la Cancillería utiliza cookies técnicas necesarias para el funcionamiento del sistema de agendamiento y autenticación. No se utilizan cookies de seguimiento publicitario ni se comparte información de navegación con terceros comerciales. Puede configurar su navegador para rechazar cookies, aunque esto puede afectar la funcionalidad del portal.</p>
+      </div>
+
+      <div class="priv-section">
+        <h3><span>🔄</span> 9. Cambios en la Política</h3>
+        <p>Esta política de privacidad puede ser actualizada cuando se produzcan cambios normativos o en los procedimientos internos. Cualquier modificación sustancial será publicada en el portal oficial de la Cancillería con al menos 10 días hábiles de anticipación. La versión vigente siempre estará disponible en este portal. <strong>Última actualización: Enero de 2024.</strong></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────
+     SECCIÓN 10 — NORMATIVA LEGAL
+───────────────────────────────────────────── -->
+<section id="normativa">
+  <div class="section-inner">
+    <span class="section-label">Sección 10</span>
+    <h2 class="titulo-seccion">Marco Normativo y Legal</h2>
+    <p class="subtitulo-seccion">El régimen de pasaportes en Colombia se rige por un conjunto de leyes, decretos y convenios internacionales.</p>
+    <div class="norm-grid">
+
+      <div class="norm-card">
+        <div class="norm-year">Constitución Política</div>
+        <h3>Artículo 100 — Derechos de los Colombianos</h3>
+        <p>Establece el derecho de los colombianos a entrar y salir del país libremente. El pasaporte es el documento que garantiza este derecho en el ámbito internacional.</p>
+        <span class="norm-tag">Constitucional</span>
+      </div>
+
+      <div class="norm-card">
+        <div class="norm-year">Decreto 1003 de 2014</div>
+        <h3>Expedición de Pasaportes</h3>
+        <p>Reglamenta el régimen de expedición, renovación, anulación y cancelación de pasaportes colombianos, y establece la Cancillería como autoridad competente.</p>
+        <span class="norm-tag">Decreto</span>
+      </div>
+
+      <div class="norm-card">
+        <div class="norm-year">Ley 1581 de 2012</div>
+        <h3>Protección de Datos Personales</h3>
+        <p>Ley Estatutaria que establece el régimen general de protección de datos personales en Colombia. Base legal para el tratamiento de información biométrica en pasaportes.</p>
+        <span class="norm-tag">Ley Estatutaria</span>
+      </div>
+
+      <div class="norm-card">
+        <div class="norm-year">Decreto 1082 de 2015</div>
+        <h3>Reglamentación Consular</h3>
+        <p>Regula los servicios consulares en el exterior, incluyendo la expedición de pasaportes de emergencia y las funciones de los cónsules en materia de documentación.</p>
+        <span class="norm-tag">Decreto</span>
+      </div>
+
+      <div class="norm-card">
+        <div class="norm-year">OACI Doc 9303</div>
+        <h3>Documentos de Viaje de Lectura Mecánica</h3>
+        <p>Estándar internacional de la Organización de Aviación Civil Internacional que Colombia implementa en sus pasaportes electrónicos para garantizar la interoperabilidad global.</p>
+        <span class="norm-tag">Convenio Internacional</span>
+      </div>
+
+      <div class="norm-card">
+        <div class="norm-year">Ley 962 de 2005</div>
+        <h3>Racionalización de Trámites</h3>
+        <p>Establece principios de eficiencia y racionalidad en los trámites del Estado colombiano. Aplica a la simplificación del proceso de expedición de pasaportes.</p>
+        <span class="norm-tag">Ley</span>
+      </div>
+
+      <div class="norm-card">
+        <div class="norm-year">Código Penal</div>
+        <h3>Artículos 283–286 — Falsedad en Documentos</h3>
+        <p>Tipifica como delito la falsificación, adulteración o uso fraudulento de documentos de identidad y viaje, con penas de prisión de 3 a 10 años.</p>
+        <span class="norm-tag">Penal</span>
+      </div>
+
+      <div class="norm-card">
+        <div class="norm-year">Resolución 5895 de 2020</div>
+        <h3>Tarifas de Pasaportes</h3>
+        <p>Establece el régimen tarifario para la expedición de pasaportes colombianos. Las tarifas son actualizadas periódicamente por acto administrativo de la Cancillería.</p>
+        <span class="norm-tag">Resolución</span>
+      </div>
+
+      <div class="norm-card">
+        <div class="norm-year">Convenio de Viena 1963</div>
+        <h3>Relaciones Consulares</h3>
+        <p>Marco internacional que regula las funciones consulares, incluyendo la protección de nacionales en el exterior y la expedición de documentos de viaje de emergencia.</p>
+        <span class="norm-tag">Tratado Internacional</span>
+      </div>
+
+      <div class="norm-card">
+        <div class="norm-year">Decreto 2106 de 2019</div>
+        <h3>Simplificación de Trámites del Estado</h3>
+        <p>Establece medidas para simplificar y digitalizar trámites ante el Estado colombiano. Incluye el sistema de agendamiento digital y consulta de estado en línea para pasaportes.</p>
+        <span class="norm-tag">Decreto</span>
+      </div>
+
+      <div class="norm-card">
+        <div class="norm-year">Ley 594 de 2000</div>
+        <h3>Ley General de Archivos</h3>
+        <p>Establece las reglas sobre conservación de documentos del Estado. Determina los plazos mínimos de guarda de los expedientes de pasaportes expedidos.</p>
+        <span class="norm-tag">Ley</span>
+      </div>
+
+      <div class="norm-card">
+        <div class="norm-year">Ley 1641 de 2013</div>
+        <h3>Estatuto del Refugiado</h3>
+        <p>Regula la situación de personas en necesidad de protección internacional en Colombia. Contempla la expedición de documentos de viaje para refugiados reconocidos.</p>
+        <span class="norm-tag">Ley</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>República de Colombia</h3>
+      <p>Ministerio de Relaciones Exteriores<br>
+      Calle 10 No. 5-51, Palacio de San Carlos<br>
+      Bogotá D.C., Colombia<br><br>
+      Línea gratuita: 01 8000 510 810<br>
+      Correo: servicioalciudadano@cancilleria.gov.co</p>
+    </div>
+    <div class="footer-col">
+      <h4>Trámites</h4>
+      <a href="#tipos">Tipos de pasaporte</a>
+      <a href="#requisitos">Requisitos</a>
+      <a href="#proceso">Proceso paso a paso</a>
+      <a href="#tarifas">Tarifas vigentes</a>
+    </div>
+    <div class="footer-col">
+      <h4>Atención</h4>
+      <a href="#puntos">Puntos de atención</a>
+      <a href="#exterior">Colombianos en el exterior</a>
+      <a href="#faq">Preguntas frecuentes</a>
+      <a href="#electronico">Pasaporte electrónico</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="#privacidad">Política de privacidad</a>
+      <a href="#normativa">Normativa legal</a>
+      <p style="margin-top:16px; font-size:11px;">Gobierno en Línea<br>Datos Abiertos Colombia<br>Contraloría General</p>
+    </div>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-bottom">
+    <p>© 2026 República de Colombia. Todos los derechos reservados.</p>
+    <p>🇨🇴 Un Servicio del Gobierno Nacional</p>
+  </div>
+</footer>
+
+<!-- AVISO INFORMATIVO -->
+<div class="footer-disclaimer">
+  <p>
+    ⚠️ <strong>AVISO IMPORTANTE:</strong> Este sitio web es de carácter <strong>estrictamente informativo y sin ánimo de lucro</strong>. La información aquí publicada tiene como único propósito orientar e informar a los ciudadanos colombianos sobre los trámites de pasaportes. No constituye asesoría legal ni reemplaza la información oficial de la Cancillería de Colombia. Para trámites oficiales, diríjase siempre a los canales y puntos de atención autorizados por el Gobierno Nacional. <strong>Este portal no recibe pagos, no vende documentos y no realiza trámites en nombre del ciudadano.</strong>
+  </p>
+</div>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Volver al inicio">↑</button>
+
+<script>
+  // FAQ Accordion
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-answer').style.maxHeight = '0';
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  }
+
+  // Requirements Tabs
+  function showTab(e, id) {
+    document.querySelectorAll('.req-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.req-panel').forEach(p => p.classList.remove('active'));
+    e.target.classList.add('active');
+    document.getElementById(id).classList.add('active');
+  }
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-inner a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 120) current = sec.getAttribute('id');
+    });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
